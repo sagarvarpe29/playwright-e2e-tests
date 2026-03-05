@@ -11,7 +11,12 @@
   "author": "Sagar Varpe",
   "type": "commonjs",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "demo:firefox": "npx playwright test --project=firefox tests/demo/mytest.spec.ts --headed",
+    "demo": "npx playwright test tests/demo/mytest.spec.ts --headed",
+    "login": "npx playwright test tests/functional/login.spec.ts --headed",
+    "makeappointmentflow": "npx playwright test tests/functional/makeappointmentflow.spec.ts --headed"
+  },
   "devDependencies": {
     "@playwright/test": "^1.57.0",
     "@types/node": "^25.0.7"
