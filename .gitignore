@@ -13,3 +13,4 @@ allure-results/
 tests-examples/
 example.*
 *.log
+*.js

@@ -1,0 +1,4 @@
+testCaseId,facility,hcp,visitDate
+TC001,Tokyo CURA Healthcare Center,Medicare,05/10/2025
+TC002,Hongkong CURA Healthcare Center,Medicaid,06/15/2025
+TC003,Seoul CURA Healthcare Center,None,07/20/2025

@@ -12,13 +12,35 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "demo:parallelExecution": "npx playwright test --grep @demo-parallel",
+    "demo:params": "npx playwright test tests/demo/params.makeappointmentflow.spec.ts --headed",
+    "demo:global": "npx playwright test tests/demo/adv.cap.login.spec.ts --headed",
     "demo:firefox": "npx playwright test --project=firefox tests/demo/mytest.spec.ts --headed",
+    "adv-cap": "DEBUG=pw:api npx playwright test tests/demo/adv.cap.login.spec.ts --headed",
+    "demo:tag-smoke": "npx playwright test --grep @smoke --headed",
+    "demo:tag-regression": "npx playwright test --grep @regression --headed",
     "demo": "npx playwright test tests/demo/mytest.spec.ts --headed",
     "login": "npx playwright test tests/functional/login.spec.ts --headed",
-    "makeappointmentflow": "npx playwright test tests/functional/makeappointmentflow.spec.ts --headed"
+    "makeappointmentflow": "npx playwright test tests/functional/makeappointmentflow.spec.ts --headed",
+    "elementactionsmakeappointmentflow": "npx playwright test tests/demo/element.actions.makeappointmentflow.spec.ts --headed",
+    "inventorytest": "npx playwright test tests/functional/inventory.spec.ts --headed",
+    "checkout": "npx playwright test tests/functional/checkout.assinment.spec.ts --headed",
+    "debug:ui": "npx playwright test tests/demo/debug.makeappointmentflow.spec.ts --ui --headed",
+    "debug:cli": "PWDEBUG=1 npx playwright test tests/demo/debug.makeappointmentflow.spec.ts",
+    "test:smoke": "npx playwright test --config=config/test.playwright.config.ts tests/functional/makeappointmentflow.spec.ts --headed",
+    "dev:smoke": "npx playwright test --config=config/dev.playwright.config.ts tests/functional/makeappointmentflow.spec.ts --headed",
+    "test:noplogin": "npx playwright test --config=config/test.playwright.config.ts tests/e2e/nopcommerce.e2e.spec.ts --headed",
+    "test:makeappointment": "npx playwright test --config=config/test.playwright.config.ts tests/e2e/makeappointment.e2e.spec.ts --headed",
+    "test:api" : "npx playwright test tests/api/users.api.spec.ts && npx playwright show-report"
   },
   "devDependencies": {
     "@playwright/test": "^1.57.0",
-    "@types/node": "^25.0.7"
+    "@types/node": "^25.0.7",
+    "allure-playwright": "^3.6.0",
+    "chalk": "^5.6.2",
+    "csv-parse": "^6.2.1",
+    "dotenv": "^17.3.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.2"
   }
 }
