@@ -14,7 +14,7 @@
   "scripts": {
     "demo:parallelExecution": "npx playwright test --grep @demo-parallel",
     "demo:params": "npx playwright test tests/demo/params.makeappointmentflow.spec.ts --headed",
-    "demo:global": "npx playwright test tests/demo/adv.cap.login.spec.ts --headed",
+    "demo:global": "npx playwright test tests/demo/adv.cap.login.spec.ts",
     "demo:firefox": "npx playwright test --project=firefox tests/demo/mytest.spec.ts --headed",
     "adv-cap": "DEBUG=pw:api npx playwright test tests/demo/adv.cap.login.spec.ts --headed",
     "demo:tag-smoke": "npx playwright test --grep @smoke --headed",
@@ -25,6 +25,7 @@
     "elementactionsmakeappointmentflow": "npx playwright test tests/demo/element.actions.makeappointmentflow.spec.ts --headed",
     "inventorytest": "npx playwright test tests/functional/inventory.spec.ts --headed",
     "checkout": "npx playwright test tests/functional/checkout.assinment.spec.ts --headed",
+    "multiwindow": "npx playwright test tests/functional/multi.window.spec.ts --headed",
     "debug:ui": "npx playwright test tests/demo/debug.makeappointmentflow.spec.ts --ui --headed",
     "debug:cli": "PWDEBUG=1 npx playwright test tests/demo/debug.makeappointmentflow.spec.ts",
     "test:smoke": "npx playwright test --config=config/test.playwright.config.ts tests/functional/makeappointmentflow.spec.ts --headed",

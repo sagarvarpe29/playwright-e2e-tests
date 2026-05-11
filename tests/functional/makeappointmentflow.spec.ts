@@ -12,9 +12,9 @@ test.describe("Book Appointment Flow functionality", {annotation: { type: "Story
     //custom logs
     await log("log", `The test is running in ${envConfig.envName}`);
 
-    await page.goto(envConfig.appUrl);
+    //await page.goto(envConfig.appUrl);
 
-    //await page.goto("https://katalon-demo-cura.herokuapp.com/");
+    await page.goto("https://katalon-demo-cura.herokuapp.com/");
     await expect(page).toHaveTitle("CURA Healthcare Service");
     const header = page.locator("h1");
     await expect(header).toHaveText("CURA Healthcare Service");
