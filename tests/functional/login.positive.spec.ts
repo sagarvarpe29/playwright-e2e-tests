@@ -4,7 +4,7 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Login Functionality", () => {
-  test.beforeEach("Navigate to login page", async ({ page }) => {
+  test("Positive: Successful login with valid credentials", async ({ page }) => {
     // 1. Navigate to the CURA Healthcare Service home page
     await page.goto("https://katalon-demo-cura.herokuapp.com/");
     
@@ -18,14 +18,12 @@ test.describe("Login Functionality", () => {
     // expect: Tagline 'We Care About Your Health' is displayed
     await expect(page.locator("h3")).toContainText("We Care About Your Health");
 
-    // 2. Click on the 'Make Appointment' button
+    // 2. Click on the 'Make Appointment' button in the banner
     await page.getByRole("link", { name: "Make Appointment" }).click();
     
-    // expect: Login form is displayed
+    // expect: Login heading is displayed
     await expect(page.getByText("Please login to make")).toBeVisible();
-  });
 
-  test("Positive: Successful login with valid credentials", async ({ page }) => {
     // 3. Enter valid username 'John Doe' in the Username field
     // expect: Username field accepts the input
     await page.getByLabel("Username").fill("John Doe");
@@ -46,30 +44,5 @@ test.describe("Login Functionality", () => {
     // expect: Appointment heading 'Make Appointment' is displayed
     // expect: User is successfully authenticated and logged in
     await expect(page.locator("h2")).toContainText("Make Appointment");
-  });
-
-  test("Negative: Login fails with invalid username and password", async ({ page }) => {
-    // 3. Enter invalid username 'InvalidUser' in the Username field
-    // expect: Username field accepts the input
-    await page.getByLabel("Username").fill("InvalidUser");
-    
-    // expect: Text 'InvalidUser' appears in the username field
-    await expect(page.getByLabel("Username")).toHaveValue("InvalidUser");
-
-    // 4. Enter invalid password 'WrongPassword' in the Password field
-    // expect: Password field accepts the input
-    await page.getByLabel("Password").fill("WrongPassword");
-    
-    // expect: Password field shows masked characters
-    await expect(page.getByLabel("Password")).toHaveValue("WrongPassword");
-
-    // 5. Click the 'Login' button
-    await page.getByRole("button", { name: "Login" }).click();
-
-    // expect: Error message 'Login failed! Please ensure the username and password are valid.' is displayed
-    // expect: Login form is still accessible for retry
-    await expect(page.locator("#login")).toContainText(
-      "Login failed! Please ensure the username and password are valid."
-    );
   });
 });
